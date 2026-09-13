@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+body {
+  background-image: url(/img/img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+.navbar {
+  display: flex;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.168);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 80px;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0.5rem;
+  max-width: 1600px;
+}
+.nav-logo {
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  white-space: nowrap;
+  padding: 3px 20px;
+  transition: all 0.7 ease;
+}
+.nav-menu li a:hover {
+  color: black;
+  background-color: rgb(225, 135, 255);
+  border: 2px solid rgba(255, 255, 255, 0.107);
+}
+.nav-toggle {
+  display: none;
+  background: transparent;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background: white;
+  transition: all 0.3s ease-in-out;
+}
+/* media style  */
+@media (max-width: 880px) {
+  .navbar {
+    backdrop-filter: none;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    width: 250px;
+    position: absolute;
+    align-items: flex-start;
+    padding: 5rem 1.5rem;
+    gap: 1.7rem !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.447);
+  }
+  .nav-toggle {
+    display: block;
+    z-index: 999;
+  }
+  .navbar-container .nav-menu.active {
+    display: flex;
+  }
+  .nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  .nav-logo {
+    font-size: 1.6rem;
+  }
+  .navbar-container .nav-menu li a {
+    font-size: 1.2rem;
+    padding: 3px 15px;
+  }
+}
